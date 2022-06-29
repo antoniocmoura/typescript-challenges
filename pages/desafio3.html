@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prática com Typescript - Desafio 3</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/hljs.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script type="module" src="../dist/desafio3.js" defer></script>
+</head>
+
+<body>
+    <div class="main-challenge">
+        <div class="container-challenge">
+            <section class="challenge">
+                <div>
+                    <h3>Desafio 3</h3>
+                    <pre><code class="JavaScript" contentEditable="false">
+    // O código abaixo tem alguns erros e não funciona como deveria. 
+    // Você pode identificar quais são e corrigi-los em um arquivo TS?
+
+    let botaoAtualizar = document.getElementById('atualizar-saldo');
+    let botaoLimpar = document.getElementById('limpar-saldo');
+    let soma = document.getElementById('soma');
+    let campoSaldo = document.getElementById('campo-saldo');
+                    
+    campoSaldo.innerHTML = 0
+                    
+    function somarAoSaldo(soma) {
+        campoSaldo.innerHTML += soma;
+    }
+                    
+    function limparSaldo() {
+        campoSaldo.innerHTML = '';
+    }
+                    
+    botaoAtualizar.addEventListener('click', function () {
+        somarAoSaldo(soma.value);
+    });
+                    
+    botaoLimpar.addEventListener('click', function () {
+        limparSaldo();
+    }); 
+                </code></pre>
+                </div>
+                <div>
+                    <h3>Solução</h3>
+                    <pre><code class="JavaScript" contentEditable="false">
+    let botaoAtualizar = document.getElementById('btn-atualizar')! as HTMLButtonElement;
+    let botaoLimpar = document.getElementById('btn-limpar')! as HTMLButtonElement;
+    let campoValor = document.getElementById('campo-valor')! as HTMLInputElement;
+    let campoSaldo = document.getElementById('campo-saldo')! as HTMLInputElement;
+                    
+    let saldoAtual: number;
+                    
+    function somarAoSaldo(soma: number) {
+        saldoAtual += soma;
+        mostrarSaldoAtual();    
+        campoValor.value = '';        
+    }
+                    
+    function limparSaldo() {
+        saldoAtual = 0;
+        campoValor.value = ''; 
+        mostrarSaldoAtual();
+    }
+                    
+    function mostrarSaldoAtual() {   
+        campoSaldo.value = saldoAtual.toString();    
+        campoValor.focus();
+    }
+                    
+    botaoAtualizar.addEventListener('click', () => somarAoSaldo(Number(campoValor.value)));
+    botaoLimpar.addEventListener('click', () => limparSaldo());
+
+    limparSaldo();
+                </code></pre>
+                </div>
+            </section>
+            <section class="exec-challenge">
+                <h3>Execução</h3>
+                <h4>Valor a ser adicionado: <input id="campo-valor" type="number"> </h4>
+                <h4>Saldo Atual: <input id="campo-saldo" type="number" readonly> </h4>
+                <div class="button-group">
+                    <button id="btn-atualizar" style="width: 100%;margin-right: 5px;">Atualizar saldo</button>
+                    <button id="btn-limpar" style="width: 100%;margin-left: 5px;">Limpar saldo</button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

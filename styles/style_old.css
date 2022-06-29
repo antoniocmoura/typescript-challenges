@@ -1,0 +1,236 @@
+:root {
+    --htmlFontSize: 100%;
+    --baseColor: #d8dbdd;
+    --bodyBackgroundColor: #2c3338;
+    --bodyColor: var(--baseColor);
+    --bodyFontFamily: "Open Sans";
+    --bodyFontFamilyFallback: sans-serif;
+    --bodyFontSize: 0.875rem;
+    --bodyFontWeight: 400;
+    --bodyLineHeight: 1.5;
+    --borderRadus: 0.25rem;
+    --iconFill: var(--baseColor);
+    --buttonBackgroundColor: #ea4c88;
+    --loginSubmitColor: #eee;
+    --buttonHoverBackgroundColor: #d44179;
+    --InputBackgroundColor: #3b4148;
+    --InputHoverBackgroundColor: #434a52;
+    --LabelBackgroundColor: #363b41;
+}
+
+body {
+    background-color: var(--bodyBackgroundColor);
+    color: var(--bodyColor);
+    font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
+    font-size: var(--bodyFontSize);
+    font-weight: var(--bodyFontWeight);
+    line-height: var(--bodyLineHeight);
+    margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: var(--htmlFontSize);
+}
+
+
+button {
+    background-color: var(--buttonBackgroundColor);
+    border: 0;
+    border-radius: var(--borderRadus);
+    height: 50px;
+    padding: 14px 25px;
+    margin: 5px;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    align-items: stretch;
+    width: 100%;
+}
+
+button:focus,
+button:hover {
+    background-color: var(--buttonHoverBackgroundColor);
+}
+
+a:link,
+a:visited {
+    background-color: var(--buttonBackgroundColor);
+    border-radius: var(--borderRadus);
+    color: white;
+    padding: 14px 25px;
+    margin-right: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+a:hover,
+a:active {
+    background-color: var(--buttonHoverBackgroundColor);
+}
+
+input {
+    background-image: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    transition: background-color 0.3s;
+    background-color: var(--InputBackgroundColor);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-radius: var(--borderRadus);
+    inline-size: 92%;
+    padding: 1rem;
+}
+
+input:focus,
+input:hover {
+    background-color: var(--InputHoverBackgroundColor);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.container-login {
+    display: grid;
+    place-items: center;
+}
+
+.grid-login {
+    inline-size: 90%;
+	margin-inline: auto;
+	max-inline-size: 22rem;
+}
+
+.form {
+	display: grid;
+	gap: var(--formGap);
+}
+
+.form input[type="password"],
+.form input[type="text"],
+.form input[type="submit"] {
+	inline-size: 100%;
+}
+
+.form__field {
+	display: flex;
+}
+
+.form__input {
+	flex: 1;
+}
+
+.login {
+	color: var(--loginColor);
+}
+
+.login label,
+.login input[type="text"],
+.login input[type="password"],
+.login input[type="submit"] {
+	border-radius: var(--loginBorderRadus);
+	padding: 1rem;
+}
+
+.login label {
+	background-color: var(--loginLabelBackgroundColor);
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	padding-inline: 1.25rem;
+}
+
+.login input[type="password"],
+.login input[type="text"] {
+	background-color: var(--loginInputBackgroundColor);
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+.login input[type="password"]:focus,
+.login input[type="password"]:hover,
+.login input[type="text"]:focus,
+.login input[type="text"]:hover {
+	background-color: var(--loginInputHoverBackgroundColor);
+}
+
+.login input[type="submit"] {
+	background-color: var(--loginSubmitBackgroundColor);
+	color: var(--loginSubmitColor);
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.login input[type="submit"]:focus,
+.login input[type="submit"]:hover {
+	background-color: var(--loginSubmitHoverBackgroundColor);
+}
+
+
+.container-main {
+    display: none;
+}
+
+.container {
+    display: flex;
+}
+
+.main {
+    padding-left: 20px;
+}
+
+.challenge {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.calculator {
+    margin-left: 20px;
+}
+
+.error {
+    color: red;
+}
+
+.button-group {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+#login-container {
+    display: flex;
+    width: 300px;
+    height: 100px;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#main-container {
+    display: none;
+    flex-direction: column;
+}
+
+#film-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#list-container {
+    margin-left: 20px;
+}

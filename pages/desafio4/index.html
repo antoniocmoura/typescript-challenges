@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador de Filmes</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="../../dist/desafio4.js" defer type="module"></script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div id="login-container">
+            <input id="username" placeholder="Login" oninput="inputChanged(event)">
+            <input id="password" placeholder="Senha" type="password" oninput="inputChanged(event)">
+            <input id="apiKey" placeholder="Api Key" oninput="inputChanged(event)">
+            <button id="login-button" disabled>Login</button>
+        </div>
+        <div id="main-container">
+            <h3>Organizador de Filmes</h3>
+            <div id="film-container">                
+                <div id="search-container">                    
+                    <input id="search" placeholder="Nome do filme...">
+                    <button id="search-button">Pesquisar Filme</button>                    
+                </div>
+                <div id="list-container">
+                    <input id="search-list" placeholder="Nome da lista...">
+                    <button id="search-button">Incluir Lista</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <span id="error"></span>
+</body>
+
+</html>

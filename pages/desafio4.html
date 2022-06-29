@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador de Filmes - TMDB</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/alert.css">
+</head>
+
+<body class="align">
+
+    <!-- SPINNER -->
+    <div class="spinner hidden" id="spinner">
+        <div class="lds-spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- LOGIN -->
+    <section id="login-container" class="grid">
+
+        <form action="" id="form-login" method="POST" class="form login">
+            <div class="form__field">
+                <label for="login__username" class="login-label"><svg class="icon">
+                        <use xlink:href="#icon-user"></use>
+                    </svg><span class="hidden">Username</span></label>
+                <input autocomplete="username" id="login__username" type="text" name="username" class="form__input"
+                    placeholder="Usuário" required>
+            </div>
+            <div class="form__field">
+                <label for="login__password" class="login-label"><svg class="icon">
+                        <use xlink:href="#icon-lock"></use>
+                    </svg><span class="hidden">Password</span></label>
+                <input id="login__password" type="password" name="password" class="form__input" placeholder="Senha"
+                    required>
+            </div>
+            <div class="form__field">
+                <label for="login__apikey" class="login-label"><svg class="icon">
+                        <use xlink:href="#icon-key"></use>
+                    </svg><span class="hidden">Api-Key</span></label>
+                <input id="login__apikey" type="text" name="apiKey" class="form__input" placeholder="Chave da API"
+                    required>
+            </div>
+            <div class="form__field">
+                <input type="submit" id="login-button" value="Entrar">
+            </div>
+        </form>
+
+    </section>
+
+    <!-- MAIN -->
+    <section id="main-container" class="hidden">
+
+        <section class="main-header">
+            <div class="main-title">ORGANIZADOR DE FILMES - TMDB</div>
+            <div class="container-search">
+                <input id="input-search" placeholder="Pesquisar filme...">
+                <div class="button-search" id="button-search">
+                    <svg class="icon-search">
+                        <use xlink:href="#icon-search"></use>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-body">
+
+            <div class="list-container">
+                <form action="" id="form-list" method="POST">
+                    <label for="input-list-name">Nome da Lista</label>
+                    <input id="input-list-name" autofocus required>
+                    <label for="input-list-description">Descrição da Lista</label>
+                    <textarea id="input-list-description" name="input-list-description" rows="6" cols="50"
+                        required></textarea>
+                    <button id="btn-submit-list">Incluir Lista</button>
+                </form>
+                <div class="created-lists">
+                    <ul class="user-lists" id="user-lists"></ul>
+                </div>
+            </div>
+
+            <div class="content">
+
+                <div class="movie-list" id="movie-list">
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="icons">
+
+        <symbol id="icon-lock" viewBox="0 0 1792 1792">
+            <path
+                d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z" />
+        </symbol>
+        <symbol id="icon-user" viewBox="0 0 1792 1792">
+            <path
+                d="M1600 1405q0 120-73 189.5t-194 69.5H459q-121 0-194-69.5T192 1405q0-53 3.5-103.5t14-109T236 1084t43-97.5 62-81 85.5-53.5T538 832q9 0 42 21.5t74.5 48 108 48T896 971t133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5T896 896 624.5 783.5 512 512t112.5-271.5T896 128t271.5 112.5T1280 512z" />
+        </symbol>
+        <symbol id="icon-key" viewBox="0 0 512 512">
+            <path
+                d="M282.3 343.7L248.1 376.1C244.5 381.5 238.4 384 232 384H192V424C192 437.3 181.3 448 168 448H128V488C128 501.3 117.3 512 104 512H24C10.75 512 0 501.3 0 488V408C0 401.6 2.529 395.5 7.029 391L168.3 229.7C162.9 212.8 160 194.7 160 176C160 78.8 238.8 0 336 0C433.2 0 512 78.8 512 176C512 273.2 433.2 352 336 352C317.3 352 299.2 349.1 282.3 343.7zM376 176C398.1 176 416 158.1 416 136C416 113.9 398.1 96 376 96C353.9 96 336 113.9 336 136C336 158.1 353.9 176 376 176z" />
+        </symbol>
+        <symbol id="icon-add" viewBox="0 0 512 512">
+            <path
+                d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z" />
+        </symbol>
+        <symbol id="icon-movie" viewBox="0 0 108.81 122.88">
+            <path
+                d="M62.72,69.75H99.84a9,9,0,0,1,9,9V113.9a9,9,0,0,1-9,9H62.72a9,9,0,0,1-9-9V78.72a9,9,0,0,1,9-9ZM84.46,28.19a3.15,3.15,0,0,1,2.29,3v5.29H94.6a6.82,6.82,0,0,1,4.88,2,6.91,6.91,0,0,1,2,4.88V60.21h-6V43.42a1,1,0,0,0-.28-.7,1,1,0,0,0-.71-.28H86.75V60.2H80.44V35H54.21A3.17,3.17,0,0,1,51,31.83V6.29H6.32v95.48H43.76v6.31H16.37V116a1,1,0,0,0,.28.7,1,1,0,0,0,.7.28H43.74v5.93H17.39A7,7,0,0,1,10.47,116v-7.88H5.66a5.66,5.66,0,0,1-4-1.65,5.6,5.6,0,0,1-1.66-4V5.65A5.65,5.65,0,0,1,5.66,0H54.21a3.09,3.09,0,0,1,2.42,1.16l27.83,27ZM20,51.62A2.05,2.05,0,0,0,18,53.76,2,2,0,0,0,20,55.89H57A2.05,2.05,0,0,0,59,53.76,2,2,0,0,0,57,51.62Zm0,15.27A2,2,0,0,0,18.06,69,2,2,0,0,0,20,71.15h23.7V66.89Zm0,15.26a2,2,0,0,0-1.92,2.13A2,2,0,0,0,20,86.41h23.7V82.15Zm0-45.79A2,2,0,0,0,18,38.49,2,2,0,0,0,20,40.62H41.89a2,2,0,0,0,1.91-2.13,2,2,0,0,0-1.91-2.13ZM20,21.1a2,2,0,0,0-1.92,2.13A2,2,0,0,0,20,25.36H32a2,2,0,0,0,1.91-2.13A2,2,0,0,0,32,21.1Zm37.37-10L76.24,28.69H57.35V11.06ZM91.07,98.13c1.86-1.2,1.86-2.54,0-3.6L74.49,83.47c-1.51-1-3.1-.4-3.06,1.59l.06,22.35c.13,2.15,1.36,2.73,3.17,1.74l16.41-11Z" />
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 512 512">
+            <path
+                d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z" />
+        </symbol>
+
+    </svg>
+
+    <script type="module" src="../dist/desafio4.js" defer></script>
+
+</body>
+
+</html>

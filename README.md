@@ -9,3 +9,5 @@ npm i
 ```
 npm start
 ```
+
+Obs.: Para executar o desafio 4 é necessário ter cadastro no site https://www.themoviedb.org/
